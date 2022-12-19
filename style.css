@@ -9,8 +9,24 @@ html {
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: white;
+    background: #080808;
     font-weight: bold;
+}
+.video {
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    margin-left: 1050px;
+}
+.container {
+    width: 885px;
+    height: 497.81px;
+    padding: 25px;
+    margin-top: 20px;
+    margin-left: -120px;
+    box-shadow: rgba(0, 255, 255, 1) 0px 20px 30px, rgba(0, 255, 225, 10) 0px 15px 10px;
 }
 .player {
     height: 95vh;
@@ -18,12 +34,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: -1000px;
+    color: white;
+    margin-top: -600px;
 }
 .wrapper {
     border: 1px solid transparent;
     padding: 50px;
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 40px, rgba(0, 0, 0, 0.5) 0px 15px 10px;
+    box-shadow: rgba(0, 255, 255, 1) 0px 20px 30px, rgba(0, 255, 225, 10) 0px 15px 10px;
 }
 .details {
     display: flex;
@@ -41,9 +60,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50%;
-    -moz-box-shadow: 0px 5px 5px #ccc;
-    -webkit-box-shadow: 0px 6px 5px #ccc;
-    box-shadow: 0px 5px 5px #ccc;
+    box-shadow: rgba(0, 255, 255, 1) 0px 5px 25px, rgba(0, 255, 225, 1) 0px 5px 1px;
     -moz-border-radius: 200px;
     -webkit-border-radius: 200px;
     border-radius: 200px
@@ -66,6 +83,9 @@ body {
     justify-content: center;
     margin-bottom: 30px;
 }
+.buttons .random-track {
+    color: red;
+}
 .active {
     color: black;
 }
@@ -78,6 +98,7 @@ body {
     opacity: 1.0;
     align-items: center;
     justify-content: center;
+    color: green;
 }
 .slider_container {
     display: flex;

@@ -9,7 +9,7 @@ let seekSlider = document.querySelector('.seek_slider');
 let volumeSlider = document.querySelector('.volume_slider');
 let currentTime = document.querySelector('.current-time');
 let totalDuration = document.querySelector('.total-duration');
-let wave = document.querySelector('wave');
+let wave = document.getElementById('wave');
 let randomIcon = document.querySelector('.fa-random');
 let currentTrack = document.createElement('audio');
 let trackIndex = 0;
@@ -17,31 +17,55 @@ let isPlaying = false;
 let isRandom = false;
 let updateTimer;
 const musicList = [
+/*  {
+        img: 'Media/',
+        name: '',
+        artist: '', 
+        music: 'Music/'
+    }                   */
     {
-        img: 'Media/fallingdown.png',
-        name: 'Falling Down', 
-        artist: 'Wid Cards',
-        music: 'Music/music_fallingdown.mp3' 
+        img: 'Media/avengers.png',
+        name: 'The Avengers Theme Song',
+        artist: 'Alan Silvestri', 
+        music:  'Music/avengers-alan-silvestri.mp3'  
     },
     {
         img: 'Media/faded.png',
         name: 'Faded', 
         artist: 'Alan Walker',
-        music: 'Music/music_Faded.mp3'
+        music: 'Music/faded-alan-walker.mp3'
     }, 
     {
         img: 'Media/ratherbe.png', 
         name: 'Rather Be',
         artist: 'Clean Bandit',
-        music: 'Music/music_Rather be.mp3'
+        music: 'Music/rather-be-clean-bandit.mp3'
     },
     {
         img: 'Media/stay.png', 
         name: 'Stay',
-        artist: 'Kid Laroi',
-        music: 'Music/music_stay.mp3'
+        artist: 'The Kid Laroi',
+        music: 'Music/stay-the-kid-laroi.mp3'
+    },
+    {
+        img: 'Media/vip.png', 
+        name: 'VIP',
+        artist: 'Manic Drive',
+        music: 'Music/vip-manic-drive.mp3'
+    },
+    {
+        img: 'Media/shapeofyou.png',
+        name: 'Shape of You',
+        artist: 'Ed Sheeran', 
+        music: 'Music/shape-of-you-ed-sheeran.mp3'
+    },
+    {
+        img: 'Media/fallingdown.png',
+        name: 'Falling Down', 
+        artist: 'Wild Cards',
+        music: 'Music/falling-down-wild-cards.mp3' 
     }
-];
+]; 
 loadTrack(trackIndex);
 function loadTrack(trackIndex) {
     clearInterval(updateTimer);
@@ -150,7 +174,7 @@ function seekTo() {
     currentTrack.currentTime = seekTo;
 }
 function setVolume() {
-    currentTrack.volume = volumeSlider.value / 100;
+    currentTrack.volume = (volumeSlider.value / 100);
 }
 function setUpdate(){
     let seekPosition = 0;
