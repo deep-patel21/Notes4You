@@ -75,7 +75,49 @@ const musicList = [
         artist: 'Charlie Puth',
         music: 'Music/attention-charlie-puth.mp3',
         video: new URL('https://www.youtube.com/watch?v=M0sttjJN_CY&ab_channel=JovaMusique-PianellaPiano')
-    }
+    },
+    {
+        img: 'Media/2step.png',
+        name: '2Step',
+        artist: 'Ed Sheeran (feat. Lil Baby)', 
+        music: 'Music/2step-ed-sheeran.mp3',
+        video: new URL('https://www.youtube.com/watch?v=5AGFRfxc-eQ&ab_channel=VviewPiano')
+    },
+    {
+        img: 'Media/ironman3.png',
+        name: 'Iron Man 3 Theme Song',
+        artist: 'Brian Tyler', 
+        music: 'Music/iron-man-3-brian-tyler.mp3',
+        video: new URL('https://www.youtube.com/watch?v=q7oF-wrvyDk&ab_channel=DavydKotok')
+    },
+    {
+        img: 'Media/levitating.png',
+        name: 'Levitating',
+        artist: 'Dua Lipa (feat. DaBaby)', 
+        music: 'Music/levitating-dua-lipa.mp3',
+        video: new URL('https://www.youtube.com/watch?v=rRH2hU2Qv5Y&ab_channel=JovaMusique-PianellaPiano')
+    },
+    {
+        img: 'Media/madcondontworry.png',
+        name: "Don't Worry",
+        artist: 'Madcon (feat. Ray Dalton)', 
+        music: 'Music/dont-worry-madcon.mp3',
+        video: new URL('https://www.youtube.com/watch?v=ZZv4coJSttQ&ab_channel=BGHMusic2')
+    },
+    {
+        img: 'Media/apexlegends.png',
+        name: 'Apex Legends Theme Song',
+        artist: 'Stephen Barton', 
+        music: 'Music/apex-legends-stephen-barton.mp3',
+        video: new URL('https://www.youtube.com/watch?v=yu64jP4PQwg&ab_channel=TheBlueNotesPianoTutorials')
+    },
+    {
+        img: 'Media/countingstars.png',
+        name: 'Counting Stars',
+        artist: 'OneRepublic', 
+        music: 'Music/counting-stars-one-republic.mp3',
+        video: new URL('https://www.youtube.com/watch?v=8r7CUCnNJmQ&ab_channel=JovaMusique-PianellaPiano')
+    }         
 ]; 
 loadTrack(trackIndex);
 //loadVideo(trackIndex);
@@ -224,4 +266,10 @@ function setUpdate(){
         currentTime.textContent = currentMinutes + ":" + currentSeconds;
         totalDuration.textContent = durationMinutes + ":" + durationSeconds;
     }
+}
+function getTrackName() {
+    return musicList[trackIndex].name;
+}
+function getURL() {
+    return musicList[trackIndex].video;
 }
