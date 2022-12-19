@@ -12,7 +12,28 @@ body {
     background: #080808;
     font-weight: bold;
 }
-.video {
+.header {
+    color: white;
+    font-size: 25px;
+    padding: 15px;
+    margin-bottom: -50px;
+    margin-left: 150px;
+}
+.siteLogo {
+    width: 14px;
+    height: auto;
+    padding: 30px;
+    margin-bottom: -90px;
+    margin-left: 20px;
+}
+.siteHeader {
+    color: white;
+    position: absolute;
+    margin-left: 190px;
+    margin-top: 50px;
+    font-size: 25px;
+}
+.container {
     color: white;
     font-size: 30px;
     align-items: center;
@@ -20,13 +41,20 @@ body {
     padding-top: 50px;
     margin-left: 1050px;
 }
-.container {
+.videoSpecs {
+    position: relative;
+    margin-left: -23px;
+    margin-top: -25px;
+}
+.video {
     width: 885px;
     height: 497.81px;
     padding: 25px;
     margin-top: 20px;
     margin-left: -120px;
-    box-shadow: rgba(0, 255, 255, 1) 0px 20px 30px, rgba(0, 255, 225, 10) 0px 15px 10px;
+    box-shadow: rgb(0, 119, 255) 0px 1px 30px, rgba(0, 255, 225, 10) 0px 1px 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .player {
     height: 95vh;
@@ -42,7 +70,7 @@ body {
     border: 1px solid transparent;
     padding: 50px;
     border-radius: 12px;
-    box-shadow: rgba(0, 255, 255, 1) 0px 20px 30px, rgba(0, 255, 225, 10) 0px 15px 10px;
+    box-shadow: rgba(0, 119, 255) 0px 2px 30px, rgba(0, 255, 225, 10) 0px 5px 10px;
 }
 .details {
     display: flex;
@@ -60,7 +88,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50%;
-    box-shadow: rgba(0, 255, 255, 1) 0px 5px 25px, rgba(0, 255, 225, 1) 0px 5px 1px;
+    /*box-shadow: linear-gradient(orange, red) 0px 1px 25px, linear-gradient(orange, red) 0px 1px 15px;*/
+    box-shadow: rgb(245, 245, 245) 0px 1px 25px, rgb(244, 247, 246) 0px 1px 15px; 
     -moz-border-radius: 200px;
     -webkit-border-radius: 200px;
     border-radius: 200px
@@ -157,6 +186,18 @@ i, i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
 }
 .randomActive {
     color: black;
+}
+.copyright {
+    /*background-color: #080808;*/
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: -922px;
+    margin-left: -635px;
+    font-weight: 500;
+    color:#999;
+    font-family: 'Comfortaa', sans-serif, monospace;
 }
 .rotate {
     animation: rotation 8s infinite linear;

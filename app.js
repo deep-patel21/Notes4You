@@ -2,6 +2,7 @@ let nowPlaying = document.querySelector('.now-playing');
 let trackArt = document.querySelector('.track-art')
 let trackName = document.querySelector('.track-name')
 let trackArtist = document.querySelector('.track-artist')
+let trackVideo = document.querySelector('.video')
 let playpauseButton = document.querySelector('.playpause-track');
 let nextButton = document.querySelector('.next-track');
 let previousButton = document.querySelector('.previous-track');
@@ -12,7 +13,9 @@ let totalDuration = document.querySelector('.total-duration');
 let wave = document.getElementById('wave');
 let randomIcon = document.querySelector('.fa-random');
 let currentTrack = document.createElement('audio');
+let currentVideo = document.createElement('video')
 let trackIndex = 0;
+let videoIndex = 0;
 let isPlaying = false;
 let isRandom = false;
 let updateTimer;
@@ -21,52 +24,71 @@ const musicList = [
         img: 'Media/',
         name: '',
         artist: '', 
-        music: 'Music/'
+        music: 'Music/',
+        video: new URL('')
     }                   */
     {
         img: 'Media/avengers.png',
         name: 'The Avengers Theme Song',
         artist: 'Alan Silvestri', 
-        music:  'Music/avengers-alan-silvestri.mp3'  
+        music:  'Music/avengers-alan-silvestri.mp3', 
+        video: new URL('https://www.youtube.com/watch?v=dx9sB9y0Rm4&ab_channel=SheetMusicBoss')
     },
     {
         img: 'Media/faded.png',
         name: 'Faded', 
         artist: 'Alan Walker',
-        music: 'Music/faded-alan-walker.mp3'
+        music: 'Music/faded-alan-walker.mp3',
+        video: new URL('https://www.youtube.com/watch?v=LSwXh1Y5thY&ab_channel=Rousseau')
     }, 
     {
         img: 'Media/ratherbe.png', 
         name: 'Rather Be',
         artist: 'Clean Bandit',
-        music: 'Music/rather-be-clean-bandit.mp3'
+        music: 'Music/rather-be-clean-bandit.mp3',
+        video: new URL('https://www.youtube.com/watch?v=AyCcvKoZ6KI&ab_channel=JovaMusique-PianellaPiano')
     },
     {
         img: 'Media/stay.png', 
         name: 'Stay',
         artist: 'The Kid Laroi',
-        music: 'Music/stay-the-kid-laroi.mp3'
+        music: 'Music/stay-the-kid-laroi.mp3',
+        video: new URL('https://www.youtube.com/watch?v=XGYK2gqkRag&ab_channel=JovaMusique-PianellaPiano')
     },
     {
-        img: 'Media/vip.png', 
-        name: 'VIP',
-        artist: 'Manic Drive',
-        music: 'Music/vip-manic-drive.mp3'
+        img: 'Media/blindinglights.png', 
+        name: 'Blinding Lights',
+        artist: 'The Weeknd',
+        music: 'Music/blinding-lights-the-weeknd.mp3',
+        video: new URL('https://www.youtube.com/watch?v=nWis_uYXANk&ab_channel=JovaMusique-PianellaPiano')
     },
     {
         img: 'Media/shapeofyou.png',
         name: 'Shape of You',
         artist: 'Ed Sheeran', 
-        music: 'Music/shape-of-you-ed-sheeran.mp3'
+        music: 'Music/shape-of-you-ed-sheeran.mp3',
+        video: new URL('https://www.youtube.com/watch?v=BNCS26zJhh0&ab_channel=JovaMusique-PianellaPiano')
     },
     {
-        img: 'Media/fallingdown.png',
-        name: 'Falling Down', 
-        artist: 'Wild Cards',
-        music: 'Music/falling-down-wild-cards.mp3' 
+        img: 'Media/attention.png',
+        name: 'Attention', 
+        artist: 'Charlie Puth',
+        music: 'Music/attention-charlie-puth.mp3',
+        video: new URL('https://www.youtube.com/watch?v=M0sttjJN_CY&ab_channel=JovaMusique-PianellaPiano')
     }
 ]; 
 loadTrack(trackIndex);
+//loadVideo(trackIndex);
+function loadVideo(trackIndex) {
+    clearInterval(updateTimer);
+    reset();
+    //currentVideo.src = musicList[trackIndex].video;
+    //currentVideo.load();
+    //trackVideo.load();
+    //trackVideo.play();
+    //currentVideo.addEventListener('ended', nextTrack);
+    //trackVideo.style.backgroundImage = "url(" + musicList[trackIndex].img + ")";
+}  
 function loadTrack(trackIndex) {
     clearInterval(updateTimer);
     reset();
@@ -138,6 +160,11 @@ function playTrack() {
     wave.classList.add('loader');
     playpauseButton.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
+/*function playVideo() {
+    currentVideo.play();
+    trackVideo.play();
+    isPlaying = true;
+} */
 function pauseTrack() {
     currentTrack.pause();
     isPlaying = false;
@@ -157,7 +184,9 @@ function nextTrack() {
         trackIndex = 0;
     }
     loadTrack(trackIndex);
+    //loadVideo(trackIndex);
     playTrack();
+    //playVideo();
 }
 function previousTrack() {
     if(trackIndex > 0) {
