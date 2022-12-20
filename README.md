@@ -10,7 +10,7 @@ Features:
 
 ![Notes4YouMainScreen](https://user-images.githubusercontent.com/103757105/208559712-a33cf7ea-4b39-4f1c-90ed-65835c9251fb.png)
 
-The in-built music player and HTML inline frame allow the seamless integration between Synthesia MIDI tutorials.
+The in-built music player and HTML inline frame allow the seamless integration to Synthesia MIDI tutorials.
 However, the video pulled is not always what the user is looking for!
 
 ![Notes4YouFaultyTutorial](https://user-images.githubusercontent.com/103757105/208559901-5990eca3-40fc-48e2-904b-7545570052dc.png)
