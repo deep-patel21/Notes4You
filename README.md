@@ -8,4 +8,4 @@ Features:
   - Login Page (coming soon)
   - MIDI data synthesis to send to digital pianos (coming soon)
 
-![alt text](https://github.com/deep-patel21/Notes4You/blob/main/Notes4You Main Screen.jpg?raw=true)
+![alt text](https://github.com/deep-patel21/Notes4You/blob/main/Notes4YouMainScreen.jpg?raw=true)
