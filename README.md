@@ -15,7 +15,7 @@ However, the video pulled is not always what the user is looking for!
 
 ![Notes4YouFaultyTutorial](https://user-images.githubusercontent.com/103757105/208559901-5990eca3-40fc-48e2-904b-7545570052dc.png)
 
-Users can use the search functionality to automatically open a Google search with related content. This is done through.
+Users can use the search functionality to automatically open a Google search with related content. This is done through a query generated as per the array index of the current track.
 
 ![Notes4YouAutoQuery](https://user-images.githubusercontent.com/103757105/208560049-e697357f-b54d-4ef9-833e-666c54633f3c.png)
 
