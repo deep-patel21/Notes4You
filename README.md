@@ -19,5 +19,12 @@ Users can use the search functionality to automatically open a Google search wit
 
 ![Notes4YouAutoQuery](https://user-images.githubusercontent.com/103757105/208560049-e697357f-b54d-4ef9-833e-666c54633f3c.png)
 
-In the near future, users will be able to secure different playlists under a log-in system.
-Another useful feature will be MIDI data export straight to digital pianos.
+An exciting future implementation is connecting this software to hardware products like MIDI controller and Arduino ARGB controllers to make a teaching tool that lights up the keys to play synchronously with the video in the Notes4You application.
+
+![Notes4YouArduino](https://user-images.githubusercontent.com/103757105/208561321-1eac19a9-dfc3-4a99-95ec-a05db2a5c23f.png)
+Courtesy: Piano LED Visualizer
+
+This MIDI data can further be exported in music production softwares like FLStudio to learn music theory and composition.
+
+![Notes4YouMIDIExport](https://user-images.githubusercontent.com/103757105/208561396-1b34ce99-028a-41b2-8d6b-704be2ebec29.png)
+Courtesy: Admiral Bumble Bee
