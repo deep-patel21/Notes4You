@@ -109,12 +109,13 @@ section .search {
     justify-content: center;
     padding-top: 50px;
     margin-left: 1050px;
-}
+} 
 .videoSpecs {
     position: relative;
-    margin-left: -23px;
+    margin-left: -25px;
     margin-top: -25px;
-}
+    opacity: 1;
+} 
 .video {
     width: 885px;
     height: 497.81px;
@@ -124,7 +125,7 @@ section .search {
     box-shadow: rgb(0, 119, 255) 0px 1px 30px, rgba(0, 255, 225, 10) 0px 1px 10px;
     background-repeat: no-repeat;
     background-size: contain;
-}
+} 
 .player {
     height: 95vh;
     display: flex;

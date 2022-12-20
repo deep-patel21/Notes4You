@@ -2,7 +2,7 @@ let nowPlaying = document.querySelector('.now-playing');
 let trackArt = document.querySelector('.track-art')
 let trackName = document.querySelector('.track-name')
 let trackArtist = document.querySelector('.track-artist')
-let trackVideo = document.querySelector('.video')
+let trackVideo = document.querySelector('.videoSpecs')
 let playpauseButton = document.querySelector('.playpause-track');
 let nextButton = document.querySelector('.next-track');
 let previousButton = document.querySelector('.previous-track');
@@ -13,9 +13,8 @@ let totalDuration = document.querySelector('.total-duration');
 let wave = document.getElementById('wave');
 let randomIcon = document.querySelector('.fa-random');
 let currentTrack = document.createElement('audio');
-let currentVideo = document.createElement('video')
+let currentVideo = document.createElement('video');
 let trackIndex = 0;
-let videoIndex = 0;
 let isPlaying = false;
 let isRandom = false;
 let updateTimer;
@@ -25,112 +24,101 @@ const musicList = [
         name: '',
         artist: '', 
         music: 'Music/',
-        video: new URL('')
+        video: ''
     }                   */
     {
         img: 'Media/avengers.png',
         name: 'The Avengers Theme Song',
         artist: 'Alan Silvestri', 
         music:  'Music/avengers-alan-silvestri.mp3', 
-        video: new URL('https://www.youtube.com/watch?v=dx9sB9y0Rm4&ab_channel=SheetMusicBoss')
-    },
-    {
-        img: 'Media/faded.png',
-        name: 'Faded', 
-        artist: 'Alan Walker',
-        music: 'Music/faded-alan-walker.mp3',
-        video: new URL('https://www.youtube.com/watch?v=LSwXh1Y5thY&ab_channel=Rousseau')
-    }, 
-    {
-        img: 'Media/ratherbe.png', 
-        name: 'Rather Be',
-        artist: 'Clean Bandit',
-        music: 'Music/rather-be-clean-bandit.mp3',
-        video: new URL('https://www.youtube.com/watch?v=AyCcvKoZ6KI&ab_channel=JovaMusique-PianellaPiano')
-    },
-    {
-        img: 'Media/stay.png', 
-        name: 'Stay',
-        artist: 'The Kid Laroi',
-        music: 'Music/stay-the-kid-laroi.mp3',
-        video: new URL('https://www.youtube.com/watch?v=XGYK2gqkRag&ab_channel=JovaMusique-PianellaPiano')
-    },
-    {
-        img: 'Media/blindinglights.png', 
-        name: 'Blinding Lights',
-        artist: 'The Weeknd',
-        music: 'Music/blinding-lights-the-weeknd.mp3',
-        video: new URL('https://www.youtube.com/watch?v=nWis_uYXANk&ab_channel=JovaMusique-PianellaPiano')
-    },
-    {
-        img: 'Media/shapeofyou.png',
-        name: 'Shape of You',
-        artist: 'Ed Sheeran', 
-        music: 'Music/shape-of-you-ed-sheeran.mp3',
-        video: new URL('https://www.youtube.com/watch?v=BNCS26zJhh0&ab_channel=JovaMusique-PianellaPiano')
-    },
-    {
-        img: 'Media/attention.png',
-        name: 'Attention', 
-        artist: 'Charlie Puth',
-        music: 'Music/attention-charlie-puth.mp3',
-        video: new URL('https://www.youtube.com/watch?v=M0sttjJN_CY&ab_channel=JovaMusique-PianellaPiano')
-    },
-    {
-        img: 'Media/2step.png',
-        name: '2Step',
-        artist: 'Ed Sheeran (feat. Lil Baby)', 
-        music: 'Music/2step-ed-sheeran.mp3',
-        video: new URL('https://www.youtube.com/watch?v=5AGFRfxc-eQ&ab_channel=VviewPiano')
-    },
-    {
-        img: 'Media/ironman3.png',
-        name: 'Iron Man 3 Theme Song',
-        artist: 'Brian Tyler', 
-        music: 'Music/iron-man-3-brian-tyler.mp3',
-        video: new URL('https://www.youtube.com/watch?v=q7oF-wrvyDk&ab_channel=DavydKotok')
-    },
-    {
-        img: 'Media/levitating.png',
-        name: 'Levitating',
-        artist: 'Dua Lipa (feat. DaBaby)', 
-        music: 'Music/levitating-dua-lipa.mp3',
-        video: new URL('https://www.youtube.com/watch?v=rRH2hU2Qv5Y&ab_channel=JovaMusique-PianellaPiano')
-    },
-    {
-        img: 'Media/madcondontworry.png',
-        name: "Don't Worry",
-        artist: 'Madcon (feat. Ray Dalton)', 
-        music: 'Music/dont-worry-madcon.mp3',
-        video: new URL('https://www.youtube.com/watch?v=ZZv4coJSttQ&ab_channel=BGHMusic2')
+        video: 'https://www.youtube.com/embed/dx9sB9y0Rm4'
     },
     {
         img: 'Media/apexlegends.png',
         name: 'Apex Legends Theme Song',
         artist: 'Stephen Barton', 
         music: 'Music/apex-legends-stephen-barton.mp3',
-        video: new URL('https://www.youtube.com/watch?v=yu64jP4PQwg&ab_channel=TheBlueNotesPianoTutorials')
+        video: 'https://www.youtube.com/embed/yu64jP4PQwg' 
+    }, 
+    {
+        img: 'Media/ratherbe.png', 
+        name: 'Rather Be',
+        artist: 'Clean Bandit',
+        music: 'Music/rather-be-clean-bandit.mp3',
+        video: 'https://www.youtube.com/embed/AyCcvKoZ6KI'
+    },
+    {
+        img: 'Media/stay.png', 
+        name: 'Stay',
+        artist: 'The Kid Laroi',
+        music: 'Music/stay-the-kid-laroi.mp3',
+        video: 'https://www.youtube.com/embed/XGYK2gqkRag'
+    },
+    {
+        img: 'Media/blindinglights.png', 
+        name: 'Blinding Lights',
+        artist: 'The Weeknd',
+        music: 'Music/blinding-lights-the-weeknd.mp3',
+        video: 'https://www.youtube.com/embed/nWis_uYXANk'
+    },
+    {
+        img: 'Media/shapeofyou.png',
+        name: 'Shape of You',
+        artist: 'Ed Sheeran', 
+        music: 'Music/shape-of-you-ed-sheeran.mp3',
+        video: 'https://www.youtube.com/embed/g32vXVgvS7Y'
+    },
+    {
+        img: 'Media/attention.png',
+        name: 'Attention', 
+        artist: 'Charlie Puth',
+        music: 'Music/attention-charlie-puth.mp3',
+        video: 'https://www.youtube.com/embed/M0sttjJN_CY'
+    },
+    {
+        img: 'Media/2step.png',
+        name: '2Step',
+        artist: 'Ed Sheeran (feat. Lil Baby)', 
+        music: 'Music/2step-ed-sheeran.mp3',
+        video: 'https://www.youtube.com/embed/5AGFRfxc-eQ'
+    },
+    {
+        img: 'Media/ironman3.png',
+        name: 'Iron Man 3 Theme Song',
+        artist: 'Brian Tyler', 
+        music: 'Music/iron-man-3-brian-tyler.mp3',
+        video: 'https://www.youtube.com/embed/q7oF-wrvyDk'
+    },
+    {
+        img: 'Media/levitating.png',
+        name: 'Levitating',
+        artist: 'Dua Lipa (feat. DaBaby)', 
+        music: 'Music/levitating-dua-lipa.mp3',
+        video: 'https://www.youtube.com/embed/DgNZmpLLh0w'
+    },
+    {
+        img: 'Media/madcondontworry.png',
+        name: "Don't Worry",
+        artist: 'Madcon (feat. Ray Dalton)', 
+        music: 'Music/dont-worry-madcon.mp3',
+        video: 'https://www.youtube.com/embed/B1YeAfMNUmk'
+    },
+    {
+        img: 'Media/faded.png',
+        name: 'Faded', 
+        artist: 'Alan Walker',
+        music: 'Music/faded-alan-walker.mp3',
+        video: 'https://www.youtube.com/embed/Nk6_9kDyo0w'
     },
     {
         img: 'Media/countingstars.png',
         name: 'Counting Stars',
         artist: 'OneRepublic', 
         music: 'Music/counting-stars-one-republic.mp3',
-        video: new URL('https://www.youtube.com/watch?v=8r7CUCnNJmQ&ab_channel=JovaMusique-PianellaPiano')
-    }         
+        video: 'https://www.youtube.com/embed/8r7CUCnNJmQ'
+    }  
 ]; 
 loadTrack(trackIndex);
-//loadVideo(trackIndex);
-function loadVideo(trackIndex) {
-    clearInterval(updateTimer);
-    reset();
-    //currentVideo.src = musicList[trackIndex].video;
-    //currentVideo.load();
-    //trackVideo.load();
-    //trackVideo.play();
-    //currentVideo.addEventListener('ended', nextTrack);
-    //trackVideo.style.backgroundImage = "url(" + musicList[trackIndex].img + ")";
-}  
 function loadTrack(trackIndex) {
     clearInterval(updateTimer);
     reset();
@@ -142,6 +130,9 @@ function loadTrack(trackIndex) {
     nowPlaying.textContent = "Playing " + (trackIndex + 1) + " of " + musicList.length;
     updateTimer = setInterval(setUpdate, 1000);
     currentTrack.addEventListener('ended', nextTrack);
+    currentVideo.src = musicList[trackIndex].video;
+    currentVideo.load();
+    trackVideo.src = musicList[trackIndex].video;
     //randomBackgroundColor();
 }
 /*function randomBackgroundColor() {
@@ -202,11 +193,6 @@ function playTrack() {
     wave.classList.add('loader');
     playpauseButton.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
-/*function playVideo() {
-    currentVideo.play();
-    trackVideo.play();
-    isPlaying = true;
-} */
 function pauseTrack() {
     currentTrack.pause();
     isPlaying = false;
@@ -226,9 +212,7 @@ function nextTrack() {
         trackIndex = 0;
     }
     loadTrack(trackIndex);
-    //loadVideo(trackIndex);
     playTrack();
-    //playVideo();
 }
 function previousTrack() {
     if(trackIndex > 0) {
@@ -269,7 +253,4 @@ function setUpdate(){
 }
 function getTrackName() {
     return musicList[trackIndex].name;
-}
-function getURL() {
-    return musicList[trackIndex].video;
 }
