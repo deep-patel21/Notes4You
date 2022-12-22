@@ -1,5 +1,5 @@
 # Notes4You
-Responsive music player web app, connecting users to the best piano tutorials for their favorite songs in a minimalist enviroment.
+Responsive music player web app, connecting users to the best piano tutorials for their favorite songs.
 
 Features: 
   - Easy to navigate through tracklist
