@@ -16,8 +16,6 @@ app.config["SESSION_COOKIE_NAME"] = "notes4you-login-session"
 TOKEN_INFO = "token_info"
 PLAYLIST_ID = "https://open.spotify.com/playlist/placeholder"
 
-global current_track_index
-
 #Endpoint Usage: fetches authorization_url from Spotify
 #Parameters Returned: Throws redirect for user to authorize on Spotify servers
 @app.route("/")
@@ -57,7 +55,7 @@ def get_token():
 #Endpoint Usage: Internal
 #Parameters Returned: In-built CSS formatted display string containing 
 #                      track_name, artist(s), and cover image of track
-@app.route('/getTrack', methods=['GET', 'POST'])
+@app.route('/getTrack', methods=['POST', 'GET'])
 def getTrack():
     try:
         token_info = get_token()
@@ -79,14 +77,26 @@ def getTrack():
         }
         tracks_info.append(details_dict) 
 
-        current_track_index = session.get('current_track_index_html', 0)
+    current_track_index = session.get('current_track_index_html', 0)
         
     if request.method == 'POST':
-        current_track_index = session.get('current_track_index_html', 0)
-        current_track_index += 1
-        print("Updated Track Index: " + str(current_track_index))
-        return render_template('index.html', cover_art_url_html=tracks_info[current_track_index]["cover_art_url"], track_name_html=tracks_info[current_track_index]["track_name"], artist_name_html=tracks_info[current_track_index]["artists"], current_track_index=current_track_index)
-    return render_template('index.html', cover_art_url_html=tracks_info[current_track_index]["cover_art_url"], track_name_html=tracks_info[current_track_index]["track_name"], artist_name_html=tracks_info[current_track_index]["artists"], current_track_index_html=current_track_index)
+        if "next-button" in request.form:
+            current_track_index += 1
+            session['current_track_index_html'] = current_track_index
+            print("Updated Track Index: " + str(current_track_index))
+        elif 'previous-button' in request.form:
+            current_track_index -= 1
+            session['current_track_index_html'] = current_track_index
+            print("Updated Track Index: " + str(current_track_index))
+            
+    current_track_index = min(current_track_index, len(tracks_info) - 1)
+
+    return render_template('index.html', 
+            cover_art_url_html=tracks_info[current_track_index]["cover_art_url"], 
+                track_name_html=tracks_info[current_track_index]["track_name"], 
+                    artist_name_html=tracks_info[current_track_index]["artists"], 
+                        current_track_index_html=current_track_index)
+    
 
 @app.route('/logout')
 def logout():
