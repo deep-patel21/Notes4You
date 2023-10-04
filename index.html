@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notes4You</title>
+        <link rel="icon" href="Media/Notes4You Logo.png">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <link rel="shortcut icon" href="Media/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <section>
+           <!-- <div class="main">
+                <div class="searchbar">
+                    <input type="text" name="" class="query" value=" Piano tutorial videos on youtube">
+                </div>
+                <div class="searchButton">
+                    <button class="search">Search</button>
+                </div>
+            </div> -->
+        </section>
+        <!--<div class="siteHeader">
+            <h1>Notes4You | MP3/MIDI Tool</h1>
+        </div>-->
+        <!--<div class="siteLogo">
+            <img src="Media/scaledNotes4YouLogo.png" alt="logo">
+        </div>-->
+        <!--<div class="container">
+            <h3>Corresponding YouTube Video Tutorial</h3>
+            <div class="video">
+                <iframe class="videoSpecs" src="" width="885" height="497.81" heightframeborder="0"></iframe>
+            </div>
+        </div>-->
+        <!--<div>
+            <div class="message">
+                <h4>If you are unsatisfied with the video provided,
+                    click the search button to automatically find more 
+                    related videos.
+                </h4>
+                <p>&nbsp;</p>
+            </div>
+        </div> -->
+        <div class="player">
+            <div class="wrapper">
+                <div class="details">
+                    <div class="now-playing" id="now-playing">Playing x of y</div>
+                    <div class="track-art" id="cover-art">
+                        <img src="{{ cover_art_url_html }}" alt="Track Art" style="width: 375px; height: auto;">
+                    </div>
+                    <div class="track-name" id="track-name">{{ track_name_html }}</div>
+                    <div class="track-artist" id="artist-name">{{ artist_name_html }}</div>
+                </div>
+                <div class="slider_container">
+                    <div class="current-time">00:00</div>
+                    <input type="range" min="1" max="100" value="0" class="seek_slider" >
+                    <div class="total-duration">00:00</div>
+                </div>
+                <div class="slider_container">
+                    <i class="fa fa-volume-down"></i>
+                    <input type="range" min="1" max="100" value="99" class="volume_slider" >
+                    <i class="fa fa-volume-up"></i>
+                </div>
+                <div class="buttons">
+                    <!--<div class="random-track" >
+                        <i class="fas fa-random fa-2x" title="random"></i>
+                    </div> -->
+                    <div class="previous-track" id="previous-button">
+                        <i class="fa fa-step-backward fa-2x"></i>
+                    </div>
+                    <div class="playpause-track">
+                        <i class="fa fa-play-circle fa-5x" onclick="test()"></i>
+                    </div>
+                    <div class="next-track" id="next-button">
+                        <i class="fa fa-step-forward fa-2x"></i>
+                    </div>
+                    <!--<div class="repeat-track" >
+                        <i class="fa fa-repeat fa-2x"></i>
+                    </div> -->
+                    <div class="test" id="test-button">
+                        <form method="POST" action="/getTrack">
+                            <button type="submit" name="button-click">Click here for test</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="wave">
+                    <span class="stroke"></span>
+                    <span class="stroke"></span>
+                    <span class="stroke"></span>
+                    <span class="stroke"></span>
+                    <span class="stroke"></span>
+                    <span class="stroke"></span>
+                    <span class="stroke"></span>
+                </div>
+            </div>
+        </div>
+        <!--<div class="copyright">
+            <p><i class="fa-solid fa-code"></i> Developed by Deep Patel © 2022</p>
+        </div> -->
+        <script>
+            /*let query = document.querySelector('.query')
+            let search = document.querySelector('.search')
+            search.onclick = function() {
+                let url = 'https://www.google.com/search?q=' + getTrackName() + query.value;
+                window.open(url);
+            }*/
+        </script>
+    </body>
+</html>
