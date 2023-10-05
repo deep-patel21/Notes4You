@@ -12,7 +12,7 @@ body {
     background: #080808;
     font-weight: bold;
 }
-/*.header {
+.header {
     color: white;
     font-size: 25px;
     padding: 15px;
@@ -125,10 +125,13 @@ section .search {
     box-shadow: rgb(0, 119, 255) 0px 1px 30px, rgba(0, 255, 225, 10) 0px 1px 10px;
     background-repeat: no-repeat;
     background-size: contain;
-} */
+    z-index: 9000;
+} 
 .player {
-    position: relative;
+    position: absolute;
+    margin-top: -650px;
     padding-top: 115px;
+    padding-bottom: 50px;
     padding-left: 50px;
     display: flex;
     flex-direction: left;
@@ -248,7 +251,7 @@ i, i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
     width: 100%;
     text-align: center;
     padding: 20px 0;
-    margin-top: -922px;
+    margin-top: -950px;
     margin-left: -635px;
     font-weight: 500;
     color:#999;
