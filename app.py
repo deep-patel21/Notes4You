@@ -10,11 +10,11 @@ import time
 app  = Flask(__name__)
 #CORS(app)
 
-app.secret_key = "placeholder"
+app.secret_key = "OTxSQ[H<exxVtYGAu7vihoKB:4u0EUnJyLf9.m<Ism;sFxS<"
 app.config["SESSION_COOKIE_NAME"] = "notes4you-login-session"
 
 TOKEN_INFO = "token_info"
-PLAYLIST_ID = "https://open.spotify.com/playlist/placeholder"
+PLAYLIST_ID = "https://open.spotify.com/playlist/6vXUl7oiMMwIcBQzFfpbAp?si=b19e8bfacbd84de9"
 
 #Endpoint Usage: fetches authorization_url from Spotify
 #Parameters Returned: Throws redirect for user to authorize on Spotify servers
@@ -88,21 +88,29 @@ def getTrack():
             current_track_index += 1
             session['current_track_index_html'] = current_track_index
             print("Updated Track Index: " + str(current_track_index))
+            track_uri = results['items'][current_track_index]["track"]["uri"]
+            sp.start_playback(uris=[track_uri], device_id=device_id)
         elif 'previous-button' in request.form:
             current_track_index -= 1
             session['current_track_index_html'] = current_track_index
             print("Updated Track Index: " + str(current_track_index))
-        elif 'play-button' in request.form:
             track_uri = results['items'][current_track_index]["track"]["uri"]
-            sp.start_playback(uris = [track_uri], device_id=device_id)
+            sp.start_playback(uris=[track_uri], device_id=device_id)
+        elif 'play-button' in request.form:
+            track_state = sp.current_playback()
+            if track_state and track_state['is_playing']:
+                sp.pause_playback(device_id = device_id)
+            else:
+                track_uri = results['items'][current_track_index]["track"]["uri"]
+                sp.start_playback(uris = [track_uri], device_id = device_id)
 
     current_track_index = min(current_track_index, len(tracks_info) - 1)
 
     return render_template('index.html', access_token=token_info["access_token"],
-            cover_art_url_html=tracks_info[current_track_index]["cover_art_url"], 
-                track_name_html=tracks_info[current_track_index]["track_name"], 
-                    artist_name_html=tracks_info[current_track_index]["artists"], 
-                        current_track_index_html=current_track_index)
+            cover_art_url_html = tracks_info[current_track_index]["cover_art_url"], 
+                track_name_html = tracks_info[current_track_index]["track_name"], 
+                    artist_name_html = tracks_info[current_track_index]["artists"], 
+                        current_track_index_html = current_track_index)
     
 
 @app.route('/logout')
@@ -114,8 +122,8 @@ def logout():
 #Method Usage: Implement Spotify OAuthentication procedure
 def create_spotify_oauth():
     return SpotifyOAuth(
-        client_id = "placeholder",
-        client_secret = "placeholder",
+        client_id = "4416d89d787f43a28f04982279b080ed",
+        client_secret = "cc07b292a5f443189a1124726a394f99",
         redirect_uri = url_for("redirectPage", _external = True),
         scope = "user-library-read, user-modify-playback-state, user-read-playback-state")
     
