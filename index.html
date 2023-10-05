@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
         <script src="{{ url_for('static', filename='script.js') }}"></script>
         <link rel="shortcut icon" href="Media/favicon.ico" type="image/x-icon">
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -68,21 +69,23 @@
                     <!--<div class="random-track" >
                         <i class="fas fa-random fa-2x" title="random"></i>
                     </div> -->
-                    <div class="previous-track" id="previous-button">
+                   <!-- <div class="previous-track" id="previous-button">
                         <i class="fa fa-step-backward fa-2x"></i>
-                    </div>
-                    <div class="playpause-track">
+                    </div> -->
+                    <!--<div class="playpause-track">
                         <i class="fa fa-play-circle fa-5x" onclick="test()"></i>
-                    </div>
-                    <div class="next-track" id="next-button">
+                    </div>-->
+                    <!--<div class="next-track" id="next-button">
                         <i class="fa fa-step-forward fa-2x"></i>
-                    </div>
+                    </div> -->
                     <!--<div class="repeat-track" >
                         <i class="fa fa-repeat fa-2x"></i>
                     </div> -->
                     <div class="test" id="test-button">
                         <form method="POST" action="/getTrack">
-                            <button type="submit" name="button-click">Click here for test</button>
+                            <button type="submit" name="previous-button">Previous Song</button>
+                            <button type="submit" name="play-button">Play/Pause</button>
+                            <button type="submit" name="next-button">Next Song</button>
                         </form>
                     </div>
                 </div>
@@ -101,12 +104,7 @@
             <p><i class="fa-solid fa-code"></i> Developed by Deep Patel © 2022</p>
         </div> -->
         <script>
-            /*let query = document.querySelector('.query')
-            let search = document.querySelector('.search')
-            search.onclick = function() {
-                let url = 'https://www.google.com/search?q=' + getTrackName() + query.value;
-                window.open(url);
-            }*/
+            var accessToken = "{{ access_token }}";
         </script>
     </body>
 </html>
