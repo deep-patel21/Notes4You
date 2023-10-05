@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.open(url, '_blank');
     }
 
-    search.onclick = loadYouTubeVideo;
+    //search.onclick = loadYouTubeVideo;
 
     function searchYouTubeVideo(trackName, artistName) {
         const apiKey = "placholder"; 
