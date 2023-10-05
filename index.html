@@ -5,9 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Notes4You</title>
-        <link rel="icon" href="Media/Notes4You Logo.png">
+        <link rel="icon" href="{{ url_for('static', filename='assets/scaledNotes4YouLogo.png') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
         <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="https://apis.google.com/js/api.js"></script>
         <link rel="shortcut icon" href="Media/favicon.ico" type="image/x-icon">
         <script src="https://sdk.scdn.co/spotify-player.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -15,28 +17,28 @@
     </head>
     <body>
         <section>
-           <!-- <div class="main">
+           <div class="main">
                 <div class="searchbar">
                     <input type="text" name="" class="query" value=" Piano tutorial videos on youtube">
                 </div>
                 <div class="searchButton">
                     <button class="search">Search</button>
                 </div>
-            </div> -->
+            </div>
         </section>
-        <!--<div class="siteHeader">
+        <div class="siteHeader">
             <h1>Notes4You | MP3/MIDI Tool</h1>
-        </div>-->
-        <!--<div class="siteLogo">
-            <img src="Media/scaledNotes4YouLogo.png" alt="logo">
-        </div>-->
-        <!--<div class="container">
+        </div>
+        <div class="siteLogo">
+            <img src="{{ url_for('static', filename='assets/scaledNotes4YouLogo.png') }}" alt="logo">
+        </div>
+        <div class="container">
             <h3>Corresponding YouTube Video Tutorial</h3>
             <div class="video">
-                <iframe class="videoSpecs" src="" width="885" height="497.81" heightframeborder="0"></iframe>
+                <iframe class="videoSpecs" id="video-frame" width="885" height="497.81" {{ track_name_html }}" data-artist-name="{{ artist_name_html }}"></iframe>
             </div>
-        </div>-->
-        <!--<div>
+        </div>
+        <div>
             <div class="message">
                 <h4>If you are unsatisfied with the video provided,
                     click the search button to automatically find more 
@@ -44,7 +46,7 @@
                 </h4>
                 <p>&nbsp;</p>
             </div>
-        </div> -->
+        </div> 
         <div class="player">
             <div class="wrapper">
                 <div class="details">
@@ -100,11 +102,22 @@
                 </div>
             </div>
         </div>
-        <!--<div class="copyright">
-            <p><i class="fa-solid fa-code"></i> Developed by Deep Patel © 2022</p>
-        </div> -->
+        <div class="copyright">
+            <p>Developed by Deep Patel, 2023</p>
+        </div>
         <script>
             var accessToken = "{{ access_token }}";
+            let query = document.querySelector('.query');
+            let search = document.querySelector('.search');
+            let videoFrame = document.getElementById('video-frame'); // Get the <iframe> element by its ID
+            search.onclick = function () {
+                let trackName = "{{ track_name_html }}";
+                let artistName = "{{ artist_name_html }}";
+                let searchQuery = `${trackName} ${artistName} piano tutorial youtube`;
+                let url = `https://www.youtube.com/search?q=${encodeURIComponent(searchQuery)}`;
+                videoFrame.src = url; // Set the src attribute of the iframe
+                window.open(url, '_blank');
+            }
         </script>
     </body>
 </html>
