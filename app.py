@@ -63,8 +63,12 @@ def getTrack():
         print("user not logged in yet")
         return redirect("/")
     sp = spotipy.Spotify(auth = token_info["access_token"])
-    results = sp.playlist_tracks(PLAYLIST_ID, limit = 10)
+    
+    devices = sp.devices()
+    if devices['devices']:
+        device_id = devices['devices'][0]['id']
 
+    results = sp.playlist_tracks(PLAYLIST_ID, limit = 15)
     tracks_info = []
     for track in results["items"]:
         track_name = track["track"]["name"]
@@ -88,10 +92,13 @@ def getTrack():
             current_track_index -= 1
             session['current_track_index_html'] = current_track_index
             print("Updated Track Index: " + str(current_track_index))
-            
+        elif 'play-button' in request.form:
+            track_uri = results['items'][current_track_index]["track"]["uri"]
+            sp.start_playback(uris = [track_uri], device_id=device_id)
+
     current_track_index = min(current_track_index, len(tracks_info) - 1)
 
-    return render_template('index.html', 
+    return render_template('index.html', access_token=token_info["access_token"],
             cover_art_url_html=tracks_info[current_track_index]["cover_art_url"], 
                 track_name_html=tracks_info[current_track_index]["track_name"], 
                     artist_name_html=tracks_info[current_track_index]["artists"], 
@@ -110,8 +117,7 @@ def create_spotify_oauth():
         client_id = "placeholder",
         client_secret = "placeholder",
         redirect_uri = url_for("redirectPage", _external = True),
-        scope = "user-library-read"
-    )
+        scope = "user-library-read, user-modify-playback-state, user-read-playback-state")
     
 if __name__  == "__main__":
     app.run(host = "localhost")
