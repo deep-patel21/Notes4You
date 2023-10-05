@@ -10,11 +10,15 @@ import time
 app  = Flask(__name__)
 #CORS(app)
 
-app.secret_key = "OTxSQ[H<exxVtYGAu7vihoKB:4u0EUnJyLf9.m<Ism;sFxS<"
+app.secret_key = "placeholder"
 app.config["SESSION_COOKIE_NAME"] = "notes4you-login-session"
 
 TOKEN_INFO = "token_info"
-PLAYLIST_ID = "https://open.spotify.com/playlist/6vXUl7oiMMwIcBQzFfpbAp?si=b19e8bfacbd84de9"
+#Demonstrates a collection of songs for which piano tutorials are easily available
+PLAYLIST_ID = "https://open.spotify.com/playlist/2WuGvRE6iBfVNhMViK20Ne?si=c97ea55959f84879"
+#Demonstrates alternate user flow, for playlists in which piano tutorials are rare
+PLAYLIST_ID2 = "https://open.spotify.com/playlist/6vXUl7oiMMwIcBQzFfpbAp?si=b19e8bfacbd84de9"
+track_state_position = None
 
 #Endpoint Usage: fetches authorization_url from Spotify
 #Parameters Returned: Throws redirect for user to authorize on Spotify servers
@@ -122,8 +126,8 @@ def logout():
 #Method Usage: Implement Spotify OAuthentication procedure
 def create_spotify_oauth():
     return SpotifyOAuth(
-        client_id = "4416d89d787f43a28f04982279b080ed",
-        client_secret = "cc07b292a5f443189a1124726a394f99",
+        client_id = "placeholder",
+        client_secret = "placeholder",
         redirect_uri = url_for("redirectPage", _external = True),
         scope = "user-library-read, user-modify-playback-state, user-read-playback-state")
     
