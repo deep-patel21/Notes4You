@@ -10,6 +10,8 @@ Features:
 
 ![Notes4YouMainScreen](https://user-images.githubusercontent.com/103757105/208559712-a33cf7ea-4b39-4f1c-90ed-65835c9251fb.png)
 
+![image](https://github.com/deep-patel21/Notes4You/assets/103757105/7ec42781-52aa-419e-8dbd-896796c97fe0)
+
 The in-built music player and HTML inline frame allow the seamless integration to Synthesia MIDI tutorials.
 However, the video pulled is not always what the user is looking for!
 
