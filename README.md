@@ -1,4 +1,4 @@
-# Notes4You - Documentation available https://docs.google.com/document/d/16hnnu0o__C1A-FUVzJwtuiF1q9_kjVvE3sSVBvgWtvM/edit?usp=sharing 
+# Notes4You - Documentation @ "https://docs.google.com/document/d/16hnnu0o__C1A-FUVzJwtuiF1q9_kjVvE3sSVBvgWtvM/edit?usp=sharing"
 Responsive music player web app, connecting users to the best piano tutorials for their favorite songs.
 
 Features: 
